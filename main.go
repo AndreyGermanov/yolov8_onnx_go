@@ -156,7 +156,7 @@ func process_output(output []float32, img_width, img_height int64) [][]interface
 // https://pyimagesearch.com/2016/11/07/intersection-over-union-iou-for-object-detection/.
 // Returns Intersection over union ratio as a float number
 func iou(box1, box2 []interface{}) float64 {
-	return intersect(box1, box2) / union(box1, box2)
+	return intersection(box1, box2) / union(box1, box2)
 }
 
 // Function calculates union area of two boxes
@@ -166,12 +166,12 @@ func union(box1, box2 []interface{}) float64 {
 	box2_x1, box2_y1, box2_x2, box2_y2 := box2[0].(float64), box2[1].(float64), box2[2].(float64), box2[3].(float64)
 	box1_area := (box1_x2 - box1_x1) * (box1_y2 - box1_y1)
 	box2_area := (box2_x2 - box2_x1) * (box2_y2 - box2_y1)
-	return box1_area + box2_area - intersect(box1, box2)
+	return box1_area + box2_area - intersection(box1, box2)
 }
 
 // Function calculates intersection area of two boxes
 // Returns Area of intersection of the boxes as a float number
-func intersect(box1, box2 []interface{}) float64 {
+func intersection(box1, box2 []interface{}) float64 {
 	box1_x1, box1_y1, box1_x2, box1_y2 := box1[0].(float64), box1[1].(float64), box1[2].(float64), box1[3].(float64)
 	box2_x1, box2_y1, box2_x2, box2_y2 := box2[0].(float64), box2[1].(float64), box2[2].(float64), box2[3].(float64)
 	x1 := math.Max(box1_x1, box2_x1)
