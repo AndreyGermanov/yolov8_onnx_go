@@ -7,7 +7,7 @@ implemented on [Go](https://go.dev).
 
 * Clone this repository: `git clone git@github.com:AndreyGermanov/yolov8_onnx_nodejs.git`
 * Go to the root of cloned repository
-* Install dependencies by running `go mod download`
+* Install dependencies by running `go get`
 * Open the `main.go`, find line `ort.SetSharedLibraryPath(...)` and specify the path to the ONNX runtime library path in it.*
 
 *If you do not have installed `ONNX runtime`, then you can manually download it for
